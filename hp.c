@@ -33,8 +33,12 @@ char **argv;
 		line[l] = '\0';
 		scanptr = -1;
 		yyparse();
-		if (sound(1))
-			printf("%1.3lf\n", stack[sp]);
+		if (sound(1)) {
+			if(stack[sp] > .01)
+				printf("%1.3lf\n", stack[sp]);
+			else
+				printf("%.3le\n",stack[sp]);
+		}
 	} else
 		while (fgets(line, sizeof line, stdin) != NULL) {
 			scanptr = -1;
