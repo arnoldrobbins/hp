@@ -1,0 +1,150 @@
+.if n .ds lq ""
+.if n .ds rq ""
+.if t .ds lq ``
+.if t .ds rq ''
+.de QU
+\&\\*(lq\\$1\\*(rq\\$2
+..
+.TH HP 1 GT-SWT
+.SH NAME
+hp \- Reverse Polish Notation calculator
+.SH SYNOPSIS
+.B hp
+[
+.I "expression elements"
+]
+.SH DESCRIPTION
+.I Hp
+is a desk calculator program using the Reverse Polish Notation
+familiar to all stack machine aficionados and users of
+Hewlett-Packard calculators.
+It accepts expressions composed of operands and operators from
+either its argument list or standard input and evaluates them.
+.PP
+If the expressions to be evaluated are given on the command line,
+.I hp
+prints the resulting value automatically;
+otherwise, the user must request printing with the
+.QU "p"
+or
+.QU "P"
+commands.
+.PP
+An acceptable expression consists of a sequence of
+.QU "constants"
+and
+.QU "commands."
+Constants are numeric constants written in the style of Fortran,
+and are stored internally as double precision floating-point values.
+Commands are single characters that request an arithmetic, stack
+control, or control flow operation.
+The following commands are currently implemented:
+.TP
+.B p
+print the value on the top of the stack.
+.TP
+.B P
+print all the values currently on the stack.
+.TP
+.B d
+delete the top value on the stack (throw it away).
+.TP
+.B D
+empty the stack completely (throw all stacked data away).
+.TP
+.B +
+add top two items on the stack, place sum on the stack.
+.TP
+.B \-
+subtract top of stack from next to top, place difference on the stack.
+.TP
+.BR * " or " x " or " X
+multiply top two items on the stack, place product on the stack.
+Since
+.QU "*"
+is usually expanded by the shell,
+.I hp
+allows
+.QU x
+or
+.QU X
+as synonyms for
+.QU * .
+(The idea is that
+.QU x
+is hopefully reminiscent of the grade-school notation used for multiplication.)
+.TP
+.B /
+divide next to top of stack by top of stack, place quotient on the stack.
+.TP
+.B %
+divide next to top of stack by top of stack, place remainder on the stack.
+.TP
+.BR ^ " or " :
+evaluate (next to top of stack) to the (top of stack) power, place
+result on the stack.
+The
+.QU : ,
+while not very mnemonic, is not special to the shell, and so can be used
+on the command line.
+.TP
+.B <
+if next to top of stack is less than top of stack, place a 1 on the
+stack; otherwise, place a 0 on the stack.
+.TP
+.B =
+if next to top of stack equals top of stack, place a 1 on the stack;
+otherwise, place a 0 on the stack.
+.TP
+.B >
+if next to top of stack is greater than top of stack, place a 1 on the
+stack; otherwise, place a 0 on the stack.
+.TP
+.B &
+if next to top of stack is nonzero and top of stack is nonzero, place
+a 1 on the stack; otherwise, place a 0 on the stack.
+.TP
+.B |
+if next to top of stack is nonzero or top of stack is nonzero,
+place a 1 on the stack; otherwise, place a 0 on the stack.
+.TP
+.B !
+if top of stack is nonzero, replace it with a 0; if it is zero,
+replace it with a 1 (logical negation).
+.TP
+.BR q " or " Q
+exit.
+.I Hp
+will also exit when it sees an end-of-file (usually control-D).
+.SH EXAMPLES
+.nf
+hp 32.75 4.5 '*'
+hp
+1 2 3 4 5 6 7P++++++pd
+3.1416 2.7183^ 2.7183 3.1416^>p
+.fi
+.SH SEE ALSO
+.IR eval (1),
+.IR lex (1),
+.IR yacc (1)
+.SH DIAGNOSTICS
+.TP
+stack overflow
+if an attempt is made to push too many items on the stack.
+The stack size is currently limited to about 100.
+.TP
+stack underflow
+if an attempt is made to perform an operation
+with insufficient operands on the stack.
+.TP
+<char>: unrecognized command
+if a character not corresponding to
+any command appears in an expression.
+.SH STATUS
+.I Hp
+was ported to
+.SM UNIX
+more as an exercise in portability than for production
+use.  It will
+.I not
+be supported or enhanced by the I.C.S. lab staff.
