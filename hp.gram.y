@@ -4,6 +4,9 @@
 #include "y.tab.h"
 
 #include "hp.h"
+#include <math.h>
+
+#include <stdio.h>
 
 int i;
 extern int sound();
@@ -31,11 +34,11 @@ constant : DOT	{ push(ctod(line, & scanptr)); scanptr--; }
 	| DIGIT	{ push(ctod(line, & scanptr)); scanptr--; }
 	;
 
-command : LITTLEP	{ if (sound(1)) printf("%lf\n", stack[sp]); }
+command : LITTLEP	{ if (sound(1)) printf("%f\n", stack[sp]); }
 
 	| BIGP	{
 			for (i = 1; i < sp; i++)
-				printf("%lf\n", stack[i]);
+				printf("%f\n", stack[i]);
 		}
 
 	| PLUS	{
@@ -143,3 +146,78 @@ command : LITTLEP	{ if (sound(1)) printf("%lf\n", stack[sp]); }
 
 	| QUIT	{ exit (0); }
 	;
+
+%%
+
+int
+yylex()
+{
+	int c, c1;
+
+next:
+	c = input();
+
+	if (c == 0)
+		return 0;
+
+	switch (c) {
+	case '.':	return (DOT);
+	case '0':
+	case '1':
+	case '2':
+	case '3':
+	case '4':
+	case '5':
+	case '6':
+	case '7':
+	case '8':
+	case '9':
+			return (DIGIT);
+	case 'P':	return (BIGP);
+	case 'p':	return (LITTLEP);
+	case '+':	return (PLUS);
+	case '-':	return (MINUS);
+	case 'X':
+	case 'x':
+	case '*':
+			return (STAR);
+	case '/':	return (SLASH);
+	case '%':	return (PERCENT);
+	case ':':
+	case '^':
+			return (POW);
+	case '&':	return (AND);
+	case '|':	return (OR);
+	case '!':	return (NOT);
+	case '=':	return (EQ);
+	case '<':	
+		c1 = input();
+		if (c1 == '=')
+			return (LE);
+		else {
+			unput(c1);
+			return (LT);
+		}
+		break;
+	case '>':	return (GT);
+		c1 = input();
+		if (c1 == '=')
+			return (GE);
+		else {
+			unput(c1);
+			return (GT);
+		}
+	case 'D':	return (BIGD);
+	case 'd':	return (LITTLED);
+	case 'Q':
+	case 'q':
+			return (QUIT);
+	case ' ':
+	case '\t':
+	case '\n':	break;
+	default:
+		fprintf(stderr, "%c: unknown command.\n", c);
+		break;
+	}
+	goto next;
+}

@@ -35,9 +35,9 @@ char **argv;
 		yyparse();
 		if (sound(1)) {
 			if(stack[sp] > .01)
-				printf("%1.3lf\n", stack[sp]);
+				printf("%1.3f\n", stack[sp]);
 			else
-				printf("%.3le\n",stack[sp]);
+				printf("%.3e\n",stack[sp]);
 		}
 	} else
 		while (fgets(line, sizeof line, stdin) != NULL) {

@@ -6,16 +6,16 @@ DESTDIR=/usr/local/bin
 MANSEC=l
 CP= cp
 
-OBJS = hp.o hp.gram.o hp.scan.o
+OBJS = hp.o hp.gram.o # hp.scan.o
 
 hp: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -lm -ll -o hp
+	$(CC) $(CFLAGS) $(OBJS) -lm -o hp
 
-hp.scan.o : y.tab.h
-	lex hp.scan.l
-	cc -O -c lex.yy.c
-	rm lex.yy.c
-	mv lex.yy.o hp.scan.o
+#hp.scan.o : y.tab.h
+#	lex hp.scan.l
+#	cc -O -c lex.yy.c
+#	rm lex.yy.c
+#	mv lex.yy.o hp.scan.o
 
 hp.gram.o y.tab.h : hp.gram.y
 
