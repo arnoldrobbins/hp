@@ -29,4 +29,4 @@
 "d"	return (LITTLED);
 [Qq]	return (QUIT);
 [ \t\n]	;
-.	fprintf (stderr, "%s: unknown command.\n", yytext);
+.	fprintf(stderr, "%s: unknown command.\n", yytext);
