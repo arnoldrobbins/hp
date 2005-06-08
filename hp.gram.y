@@ -97,6 +97,16 @@ command : LITTLEP	{ if (sound(1)) printf("%f\n", stack[sp]); }
 			}
 		}
 
+	| LE	{
+			if (sound(2)) {
+				if (stack[sp - 1] <= stack[sp])
+					stack[sp - 1] = 1.0;
+				else
+					stack[sp - 1] = 0.0;
+				sp--;
+			}
+		}
+
 	| EQ	{
 			if (sound(2)) {
 				if (stack[sp - 1] == stack[sp])
@@ -110,6 +120,16 @@ command : LITTLEP	{ if (sound(1)) printf("%f\n", stack[sp]); }
 	| GT	{
 			if (sound(2)) {
 				if (stack[sp - 1] > stack[sp])
+					stack[sp - 1] = 1.0;
+				else
+					stack[sp - 1] = 0.0;
+				sp--;
+			}
+		}
+
+	| GE	{
+			if (sound(2)) {
+				if (stack[sp - 1] >= stack[sp])
 					stack[sp - 1] = 1.0;
 				else
 					stack[sp - 1] = 0.0;
