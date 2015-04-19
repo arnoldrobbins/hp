@@ -1,12 +1,9 @@
-Wed Jan 23 17:23:32 EST 1991
+Sun Apr 19 17:23:16 IDT 2015
+============================
 
 The 'hp' program implements a reverse polish notation calculator.
-I've had this little program for over five years, and finally decided
-to clean it up a little bit and post it.
+The original C port was created in 1985. This Git repo tracks the history
+as best as I could reconstruct it. See the man page for more information.
 
-Enjoy,
-
-Arnold Robbins				AudioFAX, Inc. | Laundry increases
-2000 Powers Ferry Road, #200 / Marietta, GA. 30067     | exponentially in the
-INTERNET: arnold@audiofax.com Phone:   +1 404 933 7612 | number of children.
-UUCP:	  emory!audfax!arnold Fax-box: +1 404 618 4581 |   -- Miriam Robbins
+Arnold Robbins
+arnold AT skeeve.com

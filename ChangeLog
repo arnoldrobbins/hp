@@ -3,6 +3,7 @@
 	* ChangeLog: Reconstituted during the process of creating
 	the Git repo.
 	* hp.1: Fixed the history.
+	* README: Updated before committing to GitHub.
 
 2005-06-09         Arnold D. Robbins     <arnold@skeeve.com>
 
