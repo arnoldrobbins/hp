@@ -1,0 +1,49 @@
+2015-04-19         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* ChangeLog: Reconstituted during the process of creating
+	the Git repo.
+	* hp.1: Fixed the history.
+
+2005-06-09         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.1: Improve fonts, add history, document <= and >= commands.
+
+2005-06-08         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.gram.y: Add `<=' and `>=' to the grammar.  They were in the
+	scanner all along... Oops.
+
+1998-03-01         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.c (main): Remove 'l' flag from %e/%f.
+	* Makefile: Don't use lex scanner.
+	* hp.gram.y: Add <math.h> and <stdio.h> includes.
+	Remove 'l' flag from %e/%f.
+	(yylex): New routine: Hand-code scanner.
+	* hp.scan.l: Removed, could not adopt it to flex.
+
+1998-03-01         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.c (main): Use %e/%f as appropriate.
+
+1991-01-23         Arnold D. Robbins     <arnold@skeeve.com>
+
+	Cleaned up for posting to comp.sources.unix (volume 24).
+
+	* README: Added.
+	* hp.1: Remove Georgia Tech-isms. Minor cleanups.
+	* hp.c (MAXLINE): Replaced with a multiple of BUFSIZ.
+	(NEWLINE): Replaced with '\n'.
+	Adjust code formatting to K&R style.
+	* hp.gram.y, hp.h, hp.scan.l: Adjust code formatting to K&R style.
+
+1986-03-21         Arnold D. Robbins     <arnold@skeeve.com>
+
+	This is the latest date on the original files.
+
+	* hp.gram.y: Thu Mar 6 21:00:22 1986 +0000
+	* hp.c: Tue Sep 24 18:10:01 1985 +0000
+	* Makefile: Tue Sep 24 18:00:40 1985 +0000
+	* hp.1: Tue Sep 24 17:57:57 1985 +0000
+	* hp.scan.l: Tue Sep 24 17:50:32 1985 +0000
+	* hp.h: Tue Sep 24 17:06:37 1985 +0000
