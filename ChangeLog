@@ -5,6 +5,10 @@
 	* hp.1: Fixed the history.
 	* README: Updated before committing to GitHub.
 
+	Make it compile without warnings:
+
+	* hp.c, hp.gram.y: Add more includes.
+
 2005-06-09         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* hp.1: Improve fonts, add history, document <= and >= commands.
