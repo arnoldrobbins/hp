@@ -1,3 +1,9 @@
+2015-03-15         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.gram.y: Add '@' as a change-sign operation.
+	(yylex): Updated.
+	* hp.1: Updated.
+
 2015-04-19         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* ChangeLog: Reconstituted during the process of creating

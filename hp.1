@@ -5,7 +5,7 @@
 .de QU
 \&\\*(lq\\$1\\*(rq\\$2
 ..
-.TH HP 1 "19 April 2015"
+.TH HP 1 "15 March 2016"
 .SH NAME
 hp \- Reverse Polish Notation calculator
 .SH SYNOPSIS
@@ -89,6 +89,9 @@ while not very mnemonic, is not special to the Bourne shell
 .RI ( sh (1)),
 and so can be used
 on the command line.
+.TP
+.B @
+Change the sign of the item on the top of the stack.
 .TP
 .B =
 if next to top of stack equals top of stack, place a 1 on the stack;
@@ -178,14 +181,14 @@ and
 .I lex
 on Unix circa 1985. Arnold finally
 posted it to USENET in 1991.
-In March of 1998, the
+In March of 1998, he replaced the
 .I lex
-scanner was replaced with a hand-written version to avoid
-the headaches, er,
+scanner with a hand-written version to avoid
+the headaches\h'-\w'headaches'u'\v'-.25'\l'\w'headaches'u'\v'.25', er,
 .IR complexity ,
-(yeah, that's the ticket) of
+of
 .IR flex .
 It then remained largely untouched
-until June of 2005, when this man page was reworked.
+until June of 2005, when he reworked this manual page.
 In April of 2015, Arnold uploaded it to Github, with as full
 a history as he could reconstruct.

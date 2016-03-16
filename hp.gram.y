@@ -16,7 +16,7 @@ extern double ctod(), pow(), fmod();
 
 %start expression
 %term DOT DIGIT BIGP LITTLEP PLUS MINUS STAR SLASH PERCENT POW
-%term AND OR NOT EQ LT GT LE GE BIGD LITTLED QUIT
+%term AND OR NOT EQ LT GT LE GE BIGD LITTLED QUIT CHANGESIGN
 
 %%
 expression : constant_or_command_list
@@ -165,6 +165,8 @@ command : LITTLEP	{ if (sound(1)) printf("%f\n", stack[sp]); }
 					stack[sp] = 1.0;
 		}
 
+	| CHANGESIGN	{ if (sound(1)) stack[sp] = -stack[sp]; }
+
 	| QUIT	{ exit (0); }
 	;
 
@@ -204,6 +206,7 @@ next:
 			return (STAR);
 	case '/':	return (SLASH);
 	case '%':	return (PERCENT);
+	case '@':	return (CHANGESIGN);
 	case ':':
 	case '^':
 			return (POW);
