@@ -1,3 +1,8 @@
+2016-03-22         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.awk: Added to the repo. I don't remember when I
+	first wrote it.
+
 2015-03-15         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* hp.gram.y: Add '@' as a change-sign operation.

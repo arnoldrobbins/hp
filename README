@@ -1,9 +1,13 @@
-Sun Apr 19 17:23:16 IDT 2015
+Tue Mar 22 20:37:41 IST 2016
 ============================
 
 The 'hp' program implements a reverse polish notation calculator.
 The original C port was created in 1985. This Git repo tracks the history
 as best as I could reconstruct it. See the man page for more information.
+
+hp.awk is a version written in portable awk, mostly for the fun of it.
+It requires that each operand and operator be separated from the next
+by whitespace.
 
 Arnold Robbins
 arnold AT skeeve.com
