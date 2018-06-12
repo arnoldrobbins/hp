@@ -173,7 +173,7 @@ command : LITTLEP	{ if (sound(1)) printf("%f\n", stack[sp]); }
 %%
 
 int
-yylex()
+yylex(void)
 {
 	int c, c1;
 

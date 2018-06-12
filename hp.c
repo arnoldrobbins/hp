@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include "hp.h"		/* get declarations */
 
 #define MAXSTACK	100
 #define TRUE		1
@@ -14,14 +15,10 @@ int scanptr = -1;
 int sp = 0;
 char line[BUFSIZ*4];
 
-extern char *strcpy();
-
-main(argc, argv)
-int argc;
-char **argv;
+int
+main(int argc, char **argv)
 {
 	int i, l;
-	int sound();
 
 	if (argc > 1) {
 		l = 0;
@@ -52,9 +49,8 @@ char **argv;
 
 /* ctod --- do atof, but increment pointer into the line buffer */
 
-double ctod(text, indx)
-char text[];
-int *indx;
+double
+ctod(char text[], int *indx)
 {
 	double result, atof();
 	char buf[BUFSIZ];
@@ -98,8 +94,8 @@ int *indx;
 
 /* fmod --- do floating modulus */
 
-double fmod(x, y)
-double x, y;
+double
+fmod(double x, double y)
 {
 	extern double modf();
 	extern double fabs();
@@ -120,8 +116,8 @@ double x, y;
 
 /* push --- push one item onto the stack */
 
-push(stuff)
-double stuff;
+void
+push(double stuff)
 {
 	if (sp > MAXSTACK)
 		fprintf(stderr, "stack overflow\n");
@@ -135,8 +131,8 @@ double stuff;
 
 /* sound --- sound out the depth of the stack */
 
-int sound(depth)
-int depth;
+int
+sound(int depth)
 {
 	if (sp < depth) {
 		fprintf(stderr, "stack underflow\n");
@@ -145,7 +141,8 @@ int depth;
 		return TRUE;
 }
 
-int input()
+int
+input(void)
 {
 	register int c;
 
@@ -161,14 +158,14 @@ again:
 	}
 }
 
-int unput(c)
-int c;
+void
+unput(int c)
 {
 	line[--scanptr] = c;
 }
 
-int yyerror(s)
-char *s;
+void
+yyerror(char *s)
 {
 	fprintf(stderr, "hp: %s\n", s);
 }

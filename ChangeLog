@@ -1,3 +1,11 @@
+2018-06-12         Arnold D. Robbins     <arnold@skeeve.com>
+
+	Move the code to C89, get rid of compiler warnings.
+
+	* hp.c, hp.gram.y: Move to ANSI style function definitions.
+	Include hp.h.
+	* hp.h: Add extern declarations for used functions.
+
 2016-03-22         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* hp.awk: Added to the repo. I don't remember when I
