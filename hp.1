@@ -5,7 +5,7 @@
 .de QU
 \&\\*(lq\\$1\\*(rq\\$2
 ..
-.TH HP 1 "15 March 2016"
+.TH HP 1 "12 December 2018"
 .SH NAME
 hp \- Reverse Polish Notation calculator
 .SH SYNOPSIS
@@ -35,7 +35,8 @@ An acceptable expression consists of a sequence of
 and
 .QU "commands."
 Constants are numeric constants written in the style of FORTRAN,
-and are stored internally as double precision floating-point values.
+although commas (typically as thousands separators) are allowed.
+Numeric values are stored internally as double-precision floating-point values.
 Commands are single characters that request an arithmetic, stack
 control, or control flow operation.
 The following commands are currently implemented:

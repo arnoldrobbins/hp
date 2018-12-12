@@ -56,8 +56,10 @@ ctod(char text[], int *indx)
 	char buf[BUFSIZ];
 	int i = 0;
 
-	while (isdigit(text[*indx])) {
-		buf[i++] = text[*indx];
+	while (isdigit(text[*indx]) || text[*indx] == ',') {
+		/* skip commas */
+		if (text[*indx] != ',')
+			buf[i++] = text[*indx];
 		(*indx)++;
 	}
 

@@ -1,3 +1,8 @@
+2018-12-12         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.c (ctod): Allow commas embedded in number; remove them.
+	* hp.1: Document same.
+
 2018-06-12         Arnold D. Robbins     <arnold@skeeve.com>
 
 	Move the code to C89, get rid of compiler warnings.
