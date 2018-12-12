@@ -2,6 +2,7 @@
 
 	* hp.c (ctod): Allow commas embedded in number; remove them.
 	* hp.1: Document same.
+	* hp.awk: Allow commas embedded in numbers.
 
 2018-06-12         Arnold D. Robbins     <arnold@skeeve.com>
 

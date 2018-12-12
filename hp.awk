@@ -106,6 +106,7 @@ function parse(		i)
 		} else if ($i == "D") {
 			initstack()
 		} else {
+			gsub(/,/, "", $i)
 			Stack[++Sp] = $i
 		}
 	}
