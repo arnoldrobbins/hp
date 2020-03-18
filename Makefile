@@ -5,6 +5,7 @@ YFLAGS= -d
 DESTDIR=/usr/local/bin
 MANSEC=l
 CP= cp
+YACC= bison -y -Wno-yacc
 
 OBJS = hp.o hp.gram.o # hp.scan.o
 
@@ -28,7 +29,7 @@ print:
 	nroff -man hp.1 | col | lpr
 
 clean:
-	rm -f $(OBJS) hp.gram.c y.tab.h
+	rm -f $(OBJS) hp.gram.c y.tab.h hp
 
 clobber: clean
 	rm -f hp

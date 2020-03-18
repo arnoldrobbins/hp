@@ -1,3 +1,12 @@
+2020-03-18         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.1: Change see also reference to eval to be for expr.
+	Thanks to Nelson H.F. Beebe for pointing it out.
+	* Makefile (clean): Remove hp binary also.
+	(YACC): Set to `bison -y -Wno-yacc' for traditional-style build
+	with current bison. Thanks to Github user dodona2 for
+	pointing out that there was a problem.
+
 2018-12-12         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* hp.c (ctod): Allow commas embedded in number; remove them.
