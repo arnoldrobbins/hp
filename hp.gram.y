@@ -159,10 +159,12 @@ command : LITTLEP	{ if (sound(1)) printf("%f\n", stack[sp]); }
 		}
 
 	| NOT	{
-			if (sound(1)) if (stack[sp] != 0.0)
+			if (sound(1)) {
+				if (stack[sp] != 0.0)
 					stack[sp] = 0.0;
 				else
 					stack[sp] = 1.0;
+			}
 		}
 
 	| CHANGESIGN	{ if (sound(1)) stack[sp] = -stack[sp]; }

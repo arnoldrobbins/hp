@@ -1,3 +1,7 @@
+2022-12-04         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* hp.gram.y: Small code formatting fix for NOT operator.
+
 2020-03-18         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* hp.1: Change see also reference to eval to be for expr.
